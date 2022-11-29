@@ -1,0 +1,10 @@
+### create a permission ###
+POST http://localhost:3000/permission
+Content-Type: application/json
+
+{
+    "name":"view_profile"
+}
+
+### view all permissions ###
+GET http://localhost:3000/permission

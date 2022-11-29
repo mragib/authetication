@@ -1,0 +1,24 @@
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwicm9sZSI6eyJpZCI6MiwibmFtZSI6InVzZXIiLCJwZXJtaXNzaW9ucyI6W3siaWQiOjgsIm5hbWUiOiJ2aWV3X3Byb2ZpbGUifV19LCJpYXQiOjE2Njk3MDgyMjUsImV4cCI6MTY2OTcxMTgyNX0.8BcWncmb0-K35ANMCWjtIi9tzqw-lkfRT90hnoyCthY
+
+### Sign in ###
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "email":"test@gmail.com",
+    "password":"987654"
+}
+
+### Create a user ###
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "name": "Ragib",
+    "email": "test@gmail.com",
+    "password":"987654"
+}
+
+### user profile ###
+GET http://localhost:3000/user/profile
+Authorization:Bearer {{token}}

@@ -1,0 +1,39 @@
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwicm9sZSI6eyJpZCI6MiwibmFtZSI6InVzZXIiLCJwZXJtaXNzaW9ucyI6W3siaWQiOjgsIm5hbWUiOiJ2aWV3X3Byb2ZpbGUifV19LCJpYXQiOjE2Njk3MDk2ODcsImV4cCI6MTY2OTcxMzI4N30.xzK1iJjlCsgn_5BMYxXoNWtvU3pyFfs-8GdiiABrolg
+
+### create a role ###
+POST http://localhost:3000/role 
+Content-Type: application/json
+Authorization:Bearer {{token}}
+
+{
+    "name":"test",
+    "permission":[1,3,7]
+}
+
+### roles ###
+GET http://localhost:3000/role
+Authorization:Bearer {{token}}
+
+
+###delete a role ###
+DELETE http://localhost:3000/role/4
+
+
+### update a role Permission ####
+PATCH http://localhost:3000/role/2
+Content-Type: application/json
+
+{
+
+    "permission":[8]
+}
+
+
+### Sign in ###
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "email":"r@gmail.com",
+    "password":"123456"
+}
