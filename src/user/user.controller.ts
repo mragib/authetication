@@ -16,6 +16,7 @@ import {
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import {
+  ApiBadRequestResponse,
   ApiBearerAuth,
   ApiConflictResponse,
   ApiCreatedResponse,
@@ -44,6 +45,7 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @ApiOperation({ summary: 'User Register' })
+  @ApiBadRequestResponse({ description: 'provide valid email' })
   @ApiCreatedResponse({ type: User, description: 'A user is registered' })
   @ApiConflictResponse({ description: 'Email Id is already in use' })
   @ApiInternalServerErrorResponse({ description: 'Internal server problem' })
@@ -55,6 +57,7 @@ export class UserController {
   @ApiOperation({ summary: 'User login' })
   @ApiUnauthorizedResponse({ description: 'Invalid Credientials' })
   @ApiOkResponse({ description: 'Provide a token' })
+  @ApiCreatedResponse({ description: 'Provide a jwt accessToken' })
   @Post('login')
   async signin(
     @Body() authCred: AuthCredentialsDto,
@@ -91,6 +94,8 @@ export class UserController {
     return this.userService.signInWithGoogle(req);
   }
 
+  @ApiOperation({ summary: 'User profile' })
+  @ApiOkResponse({ type: User, description: 'Login user profile' })
   @ApiBearerAuth()
   @ApiUnauthorizedResponse({ description: 'You need to login' })
   @UseGuards(JwtAuthGuard, PermissionGuard)

@@ -8,39 +8,39 @@ Please edit .env file
 
 ### third step
 
-insert into role (Raw data)
+create the following role (Raw data)
 Id Name
 1 admin
-2 user
+2 user -- by default register person will be a user
 
 ### fourth step
 
-insert into permission (Raw data)
-Id name
-1 create_role
-2 edit_role
-3 view_profile
+create the following permission (Raw data)
+create_permission
+edit_role
 
 ### fifth step
 
-insert into role permission (Raw data)
-roleId permissionId
-1 1
-1 2
-1 3
-2 3
+npm run start:dev
 
 ### sixth step
 
 /register url
 
-### seventh step
+### Seventh step
 
 update the user role to 1 for make him admin (Raw data)
 
-### eighth step
+### eightth step
 
-npm run start:dev
+update role permissions permission table with roleid and permission id.
+
+### nineth step
+
+use swagger ui to create permissions and edit role to asign those permissions to that role.
+permission should be like : view_user,view_profile,view_a_user,create_role,delete_role
+
+with this update you can use the app.
 
 for any queries mail to me
 diner.ragib@gmail.com

@@ -42,6 +42,9 @@ export class RoleController {
   @ApiInternalServerErrorResponse({ description: 'Server Error' })
   @ApiUnauthorizedResponse({ description: 'You need to login' })
   @ApiForbiddenResponse({ description: 'You need create_role permission' })
+  @ApiInternalServerErrorResponse({
+    description: 'Permission should be PermissionID',
+  })
   @Post()
   create(@Body() createRoleDto: CreateRoleDto) {
     return this.roleService.create(createRoleDto);
